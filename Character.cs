@@ -3,23 +3,19 @@
     public class Character
     {
         #region FIELDS
-        public string Name { get; set; }
-        public int Health { get; set; }
-        public int Mana { get; set; }
-        public int Damage { get; set; }
-        public int MagicDamage { get; set; }
-        public int Agility { get; set; }
-        public int StatPoints { get; set; }
-        public int Level { get; set; }
+        public string Name;
+        public int Health;
+        public int Damage;
+        public int Agility;
+        public int StatPoints;
+        public int Level;
         #endregion
         #region CONSTRUCTOR
-        public Character(string name, int health, int mana, int damage, int magicDamage, int agility, int statPoints, int lvl)
+        public Character(string name, int health, int damage, int agility, int statPoints, int lvl)
         {
             Name = name;
             Health = health;
-            Mana = mana;
             Damage = damage;
-            MagicDamage = magicDamage;
             Agility = agility;
             StatPoints = statPoints;
             Level = lvl;
@@ -28,12 +24,20 @@
         #region METHODS
         public void Attack()
        {
+            //wypisz generate new math task
+            //odliczanie(time)
+            //odpowiedz
+            //poprawna odp = odejmij hp przeciwnika
+            //blad = przeciwnik robi dash
+            //jezeli hp przeciwnika < 0 to LvlUp()
+            //jezeli twoje hp < 0 to sprobuj ponownie lub odpocznij
 
-       }
+        }
 
-       public void LvlUp()
+        public void LvlUp()
         {
-
+            //character.level += 1 
+            //character.statPoints += 1 
         }
         #endregion
 

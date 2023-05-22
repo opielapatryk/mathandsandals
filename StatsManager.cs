@@ -14,7 +14,7 @@
                 do
                 {
                     Console.WriteLine("Pozostało ci do wykorzystania {0} puntków statystyk!", OurCharacter.StatPoints);
-                    Console.WriteLine("1. health: {0} | 2. mana: {1} | 3. damage: {2} | 4. magic damage: {3} | 5. agility: {4} | 0. Wyjdź", OurCharacter.Health, OurCharacter.Mana, OurCharacter.Damage, OurCharacter.MagicDamage, OurCharacter.Agility);
+                    Console.WriteLine("1. health: {0} | 2. damage: {1} | 3. agility: {2} | 0. Wyjdź", OurCharacter.Health,  OurCharacter.Damage, OurCharacter.Agility);
                     userInput = Console.ReadLine();
                     switch (userInput)
                     {
@@ -24,17 +24,9 @@
                             break;
                         case "2":
                             OurCharacter.StatPoints -= 1;
-                            OurCharacter.Mana += 1;
-                            break;
-                        case "3":
-                            OurCharacter.StatPoints -= 1;
                             OurCharacter.Damage += 1;
                             break;
-                        case "4":
-                            OurCharacter.StatPoints -= 1;
-                            OurCharacter.MagicDamage += 1;
-                            break;
-                        case "5":
+                        case "3":
                             OurCharacter.StatPoints -= 1;
                             OurCharacter.Agility += 1;
                             break;
@@ -48,7 +40,7 @@
             }
             else
             {
-                Console.WriteLine("Niestety nie masz wystarczającej ilości punktów aby zwiększyć statystyki. 1. health: {0} | 2. mana: {1} | 3. damage: {2} | 4. magic damage: {3} | 5. agility: {4}", OurCharacter.Health, OurCharacter.Mana, OurCharacter.Damage, OurCharacter.MagicDamage, OurCharacter.Agility);
+                Console.WriteLine("Niestety nie masz wystarczającej ilości punktów aby zwiększyć statystyki. 1. health: {0} | 2. damage: {1} | 3. agility: {2}", OurCharacter.Health, OurCharacter.Damage, OurCharacter.Agility);
                 Console.WriteLine("Przejdź do areny!");
                 
                 
@@ -57,7 +49,7 @@
             do
             {
                 Console.WriteLine("Wybierz typ przeciwnika!");
-                Console.WriteLine("1. Boss | 2. Cipher");
+                Console.WriteLine("1. Boss | 2. Rzezimieszek");
                 typeOfDuel = Console.ReadLine();
             } while ((typeOfDuel != "1") && (typeOfDuel != "2"));
             Arena MainArena = new Arena(typeOfDuel);
