@@ -2,6 +2,7 @@
 {
     public class Character
     {
+        #region FIELDS
         public string Name { get; set; }
         public int Health { get; set; }
         public int Mana { get; set; }
@@ -10,7 +11,8 @@
         public int Agility { get; set; }
         public int StatPoints { get; set; }
         public int Level { get; set; }
-
+        #endregion
+        #region CONSTRUCTOR
         public Character(string name, int health, int mana, int damage, int magicDamage, int agility, int statPoints, int lvl)
         {
             Name = name;
@@ -22,6 +24,19 @@
             StatPoints = statPoints;
             Level = lvl;
         }
+        #endregion
+        #region METHODS
+        public void Attack()
+       {
+
+       }
+
+       public void LvlUp()
+        {
+
+        }
+        #endregion
+
     }
 }
 

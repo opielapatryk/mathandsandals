@@ -1,13 +1,12 @@
-﻿using System;
-using System.Linq.Expressions;
-using System.Xml.Linq;
-
-namespace swordsandsandals
+﻿namespace swordsandsandals
 {
 	public class StatsManager
 	{
+        #region FIELDS
         private string userInput;
         private string typeOfDuel;
+        #endregion
+        #region CONSTRUCTOR
         public StatsManager(Character OurCharacter)
 		{
             if (OurCharacter.StatPoints > 0)
@@ -64,6 +63,7 @@ namespace swordsandsandals
             Arena MainArena = new Arena(typeOfDuel);
             MainArena.ChooseDuel();
         }
-	}
+#endregion
+    }
 }
 
