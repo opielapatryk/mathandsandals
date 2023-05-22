@@ -7,7 +7,7 @@ namespace swordsandsandals
 	public class StatsManager
 	{
         private string userInput;
-
+        private string typeOfDuel;
         public StatsManager(Character OurCharacter)
 		{
             if (OurCharacter.StatPoints > 0)
@@ -51,20 +51,19 @@ namespace swordsandsandals
             {
                 Console.WriteLine("Niestety nie masz wystarczającej ilości punktów aby zwiększyć statystyki. 1. health: {0} | 2. mana: {1} | 3. damage: {2} | 4. magic damage: {3} | 5. agility: {4}", OurCharacter.Health, OurCharacter.Mana, OurCharacter.Damage, OurCharacter.MagicDamage, OurCharacter.Agility);
                 Console.WriteLine("Przejdź do areny!");
+                
+                
+            }
+            
+            do
+            {
                 Console.WriteLine("Wybierz typ przeciwnika!");
                 Console.WriteLine("1. Boss | 2. Cipher");
-                //if 1 to arena mainarena = new arena("boss")
-                //if 2 to arena mainarena = new arena("cipher")
-                //LUB
-                //do string typeOfDuel = Console.ReadLine();
-                //while string typeOfDuel != 1 || string typeOfDuel != 2
-                //case 1: Arena MainArena = new Arena("Boss");
-                //case 2: Arena MainArena = new Arena("Cipher");
-                //nastepnie zrob manager wyboru przeciwnika w arena.cs
-                string typeOfDuel = Console.ReadLine();
-                Arena MainArena = new Arena(typeOfDuel);
-            }
-		}
+                typeOfDuel = Console.ReadLine();
+            } while ((typeOfDuel != "1") && (typeOfDuel != "2"));
+            Arena MainArena = new Arena(typeOfDuel);
+            new ChooseDuel(MainArena);
+        }
 	}
 }
 

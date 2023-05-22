@@ -7,7 +7,7 @@ namespace swordsandsandals
         {
 
             new Prolog();
-            new Menu();
+            //new Menu();
 
 
         }

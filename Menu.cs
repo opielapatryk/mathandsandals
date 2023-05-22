@@ -1,12 +1,12 @@
 ﻿
-namespace swordsandsandals
-{
-    public class Menu
-    {
-        public Menu(Character OurCharacter, Arena )
-        {
-            new StatsManager(OurCharacter);
+//namespace swordsandsandals
+//{
+//    public class Menu
+//    {
+//        public Menu(Character OurCharacter, Arena )
+//        {
+//            new StatsManager(OurCharacter);
 
-        }
-    }
-}
+//        }
+//    }
+//}
