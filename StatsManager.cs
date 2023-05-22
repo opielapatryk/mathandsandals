@@ -62,7 +62,7 @@ namespace swordsandsandals
                 typeOfDuel = Console.ReadLine();
             } while ((typeOfDuel != "1") && (typeOfDuel != "2"));
             Arena MainArena = new Arena(typeOfDuel);
-            new ChooseDuel(MainArena);
+            MainArena.ChooseDuel();
         }
 	}
 }
