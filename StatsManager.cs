@@ -9,6 +9,7 @@
         #region CONSTRUCTOR
         public StatsManager(Character OurCharacter)
 		{
+            Console.Clear();//wyjebac?
             if (OurCharacter.StatPoints > 0)
             {
                 do
@@ -30,9 +31,11 @@
                             Console.WriteLine("przejdz do areny!");
                             break;
                     }
+                    Console.Clear();
                 }
                 while ((OurCharacter.StatPoints > 0) && ((userInput == "1") || (userInput == "2")));
-                Console.WriteLine("przejdz do areny!");
+                Console.WriteLine("Przejdź do areny!");
+
             }
             else
             {
@@ -47,6 +50,8 @@
                 Console.WriteLine("Wybierz typ przeciwnika!");
                 Console.WriteLine("1. Boss | 2. Rzezimieszek");
                 typeOfDuel = Console.ReadLine();
+                Console.Clear();
+
             } while ((typeOfDuel != "1") && (typeOfDuel != "2"));
             Arena MainArena = new Arena(typeOfDuel);
             MainArena.ChooseDuel(OurCharacter);
