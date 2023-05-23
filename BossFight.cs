@@ -1,9 +1,14 @@
 ﻿using System;
+using System.IO;
+using System.Text.Json;
+using System.Xml.Serialization;
+
 
 namespace swordsandsandals
 {
-	public class BossFight
-	{
+
+    public class BossFight
+    {
         #region FIELDS
         public int answer;
         private string userInput;
@@ -14,7 +19,7 @@ namespace swordsandsandals
         #endregion
         #region CONSTRUCTOR 
         public BossFight(Character OurCharacter)
-		{
+        {
             int bossHP = BossList[0].Health;
             int myHP = OurCharacter.Health;
             Console.WriteLine("Rozwiązuj działania matematyczne aby przeprowadzić atak");
@@ -70,6 +75,19 @@ namespace swordsandsandals
                 OurCharacter.Level += 1;
                 OurCharacter.StatPoints += 1;
                 Console.WriteLine("GRATULACJE! WYGRAŁEŚ POJEDYNEK! Dzięki czemu zyskujesz kolejny lvl: {0}, oraz punkt statystyk.", OurCharacter.Level);
+                //SAVE
+                
+                //string filePath = "/save.xml";
+                //FileStream fileStream = new FileStream(filePath, FileMode.Create);
+                //XmlSerializer serializer = new XmlSerializer(typeof(Character));
+                //serializer.Serialize(fileStream, OurCharacter);
+                //fileStream.Close();
+
+
+
+
+
+
                 new Menu(OurCharacter);
             }
             else

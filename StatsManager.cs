@@ -1,5 +1,6 @@
 ﻿namespace swordsandsandals
 {
+
 	public class StatsManager
 	{
         #region FIELDS

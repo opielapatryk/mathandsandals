@@ -1,6 +1,7 @@
 ﻿using System;
 namespace swordsandsandals
 {
+
 	public class Prolog
 	{
 		public Prolog()
