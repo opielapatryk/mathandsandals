@@ -23,55 +23,59 @@ namespace swordsandsandals
             Console.WriteLine("-----------------------------");
             Console.WriteLine("Twoje HP: {0}", myHP);
             Console.WriteLine("-----------------------------");
-            //while twoje hp > 0 || boss hp > 0
-            //wypisz staty twoje i przeciwnika 
-            //kliknij 1 aby rozpoczac atak
-            //kliknij 2 aby sie wycofac 
-            //case 1: generateMathTask();
-            //BossAttack()
-            GenerateMathTask(myHP, bossHP);
-        }
-        #endregion
-        #region METHODS
-        public void GenerateMathTask(int myHP, int bossHP)
-        {
+           
             Random random = new Random();
-            //NAJPIERW BEZ TIMERA ! 
-            //timer start 10 sekund
-            int firstRandNum = random.Next(10);
-            int secRandNum = random.Next(10);
-            Console.WriteLine("{0} * {1} = ", firstRandNum, secRandNum);
-            int correct = firstRandNum * secRandNum;
-            int answer = Convert.ToInt32(Console.ReadLine());
-            if(correct == answer)
+            while ((myHP>0) && (bossHP>0))
             {
-                Console.WriteLine("Dobrze");
-                bossHP = bossHP - correct;
+                int firstRandNum = random.Next(10);
+                int secRandNum = random.Next(10);
+                Console.WriteLine("{0} * {1} = ", firstRandNum, secRandNum);
+                int correct = firstRandNum * secRandNum;
+                int answer = Convert.ToInt32(Console.ReadLine());
+                if (correct == answer)
+                {
+                    Console.WriteLine("Dobrze");
+                    bossHP = bossHP - correct;
 
-                Console.WriteLine("Statystyki przeciwnika:");
-                Console.WriteLine("Boss: " + BossList[0].Name);
-                Console.WriteLine("HP: " + bossHP);
-                Console.WriteLine("-----------------------------");
-                Console.WriteLine("Twoje HP: {0}", myHP);
-                Console.WriteLine("-----------------------------");
+                    Console.WriteLine("Statystyki przeciwnika:");
+                    Console.WriteLine("Boss: " + BossList[0].Name);
+                    Console.WriteLine("HP: " + bossHP);
+                    Console.WriteLine("-----------------------------");
+                    Console.WriteLine("Twoje HP: {0}", myHP);
+                    Console.WriteLine("-----------------------------");
+                }
+                else
+                {
+                    Console.WriteLine("Źle");
+                    myHP = myHP - correct;
+
+                    Console.WriteLine("Statystyki przeciwnika:");
+                    Console.WriteLine("Boss: " + BossList[0].Name);
+                    Console.WriteLine("HP: " + bossHP);
+                    Console.WriteLine("-----------------------------");
+                    Console.WriteLine("Twoje HP: {0}", myHP);
+                    Console.WriteLine("-----------------------------");
+
+                }
+            }
+            if (myHP > 0)
+            {
+                Console.WriteLine("GRATULACJE! WYGRAŁEŚ POJEDYNEK!");
+                //OTO TWOJA NAGRODA BOUNTY.. COS TAM PRZEJDZ DO MENU ABY ULEPSZYC STATYSTYKI
+                new Menu();
             }
             else
             {
-                Console.WriteLine("Źle");
-                myHP = myHP - correct;
-
-                Console.WriteLine("Statystyki przeciwnika:");
-                Console.WriteLine("Boss: " + BossList[0].Name);
-                Console.WriteLine("HP: " + bossHP);
-                Console.WriteLine("-----------------------------");
-                Console.WriteLine("Twoje HP: {0}", myHP);
-                Console.WriteLine("-----------------------------");
+                Console.WriteLine("NIESTETY! PONIOSŁEŚ PORAŻKĘ..");
+                Console.WriteLine("Wciśnij 1. ABY WRÓCIĆ DO MENU LUB INNY KLAWISZ W CELU POWTÓRZENIA WALKI");
+                new Menu();
+                Console.ReadLine();
 
             }
-            Console.ReadLine();
-            //correct = losowa liczba od 0 do 10 * losowa liczba od 0 do 10
-            //if correct && czas nie minal ? BossList[0].Health -= losowa liczba
         }
+           
+        #endregion
+        #region METHODS
         #endregion
     }
 }
