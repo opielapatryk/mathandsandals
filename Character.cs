@@ -11,12 +11,11 @@
         public int Level;
         #endregion
         #region CONSTRUCTOR
-        public Character(string name, int health, int damage, int agility, int statPoints, int lvl)
+        public Character(string name, int health, int agility, int statPoints, int lvl)
         {
             Name = name;
             Health = health;
-            Damage = damage;
-            Agility = agility;
+            Agility = agility;//chance to dash
             StatPoints = statPoints;
             Level = lvl;
         }

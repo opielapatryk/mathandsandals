@@ -6,18 +6,14 @@ namespace swordsandsandals
         #region FIELDS
         public string Name;
         public int Health;
-        public int Damage;
         public int Agility;
-        public int Bounty;
         #endregion
         #region CONSTRUCTOR
-        public Boss(string name, int health, int damage, int agility, int bounty)
+        public Boss(string name, int health, int agility)
 		{
             Name = name;
             Health = health;
-            Damage = damage;
             Agility = agility;
-            Bounty = bounty;
 		}
         #endregion
         #region METHODS

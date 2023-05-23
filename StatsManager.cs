@@ -14,7 +14,7 @@
                 do
                 {
                     Console.WriteLine("Pozostało ci do wykorzystania {0} puntków statystyk!", OurCharacter.StatPoints);
-                    Console.WriteLine("1. health: {0} | 2. damage: {1} | 3. agility: {2} | 0. Wyjdź", OurCharacter.Health,  OurCharacter.Damage, OurCharacter.Agility);
+                    Console.WriteLine("1. health: {0} | 2. agility: {1} | 0. Wyjdź", OurCharacter.Health, OurCharacter.Agility);
                     userInput = Console.ReadLine();
                     switch (userInput)
                     {
@@ -24,10 +24,6 @@
                             break;
                         case "2":
                             OurCharacter.StatPoints -= 1;
-                            OurCharacter.Damage += 1;
-                            break;
-                        case "3":
-                            OurCharacter.StatPoints -= 1;
                             OurCharacter.Agility += 1;
                             break;
                         default:
@@ -35,12 +31,12 @@
                             break;
                     }
                 }
-                while ((OurCharacter.StatPoints > 0) && ((userInput == "1") || (userInput == "2") || (userInput == "3") || (userInput == "4") || (userInput == "5")));
+                while ((OurCharacter.StatPoints > 0) && ((userInput == "1") || (userInput == "2")));
                 Console.WriteLine("przejdz do areny!");
             }
             else
             {
-                Console.WriteLine("Niestety nie masz wystarczającej ilości punktów aby zwiększyć statystyki. 1. health: {0} | 2. damage: {1} | 3. agility: {2}", OurCharacter.Health, OurCharacter.Damage, OurCharacter.Agility);
+                Console.WriteLine("Niestety nie masz wystarczającej ilości punktów aby zwiększyć statystyki. 1. health: {0} | 2. agility: {1}", OurCharacter.Health, OurCharacter.Agility);
                 Console.WriteLine("Przejdź do areny!");
                 
                 

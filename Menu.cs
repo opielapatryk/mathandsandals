@@ -3,10 +3,23 @@ namespace swordsandsandals
 {
     public class Menu
     {
-        public Menu()
-        {
-            Console.WriteLine("hello");
+        private string userInput;
 
+        public Menu(Character OurCharacter)
+        {
+            
+            Console.WriteLine("Wcisnij klawisz 1 aby przejsc do panelu statystyk, lub inny klawisz aby stoczyc pojedynek.");
+            userInput = Console.ReadLine();
+            switch (userInput)
+            {
+                case "1":
+                    new StatsManager(OurCharacter);
+                    break;
+                default:
+                    new BossFight(OurCharacter);
+                    break;
+            }
+            
         }
     }
 }

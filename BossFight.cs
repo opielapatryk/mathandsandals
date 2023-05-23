@@ -5,9 +5,10 @@ namespace swordsandsandals
 	public class BossFight
 	{
         #region FIELDS
+        private string userInput;
         List<Boss> BossList = new List<Boss>()
         {
-            new Boss("Mechanik Andrzej", 100, 10, 1, 1),
+            new Boss("Mechanik Andrzej", 100, 1),
         };
         #endregion
         #region CONSTRUCTOR 
@@ -60,17 +61,25 @@ namespace swordsandsandals
             }
             if (myHP > 0)
             {
-                Console.WriteLine("GRATULACJE! WYGRAŁEŚ POJEDYNEK!");
-                //OTO TWOJA NAGRODA BOUNTY.. COS TAM PRZEJDZ DO MENU ABY ULEPSZYC STATYSTYKI
-                new Menu();
+                OurCharacter.Level += 1;
+                OurCharacter.StatPoints += 1;
+                Console.WriteLine("GRATULACJE! WYGRAŁEŚ POJEDYNEK! Dzięki czemu zyskujesz kolejny lvl: {0}, oraz punkt statystyk.", OurCharacter.Level);
+                new Menu(OurCharacter);
             }
             else
             {
                 Console.WriteLine("NIESTETY! PONIOSŁEŚ PORAŻKĘ..");
                 Console.WriteLine("Wciśnij 1. ABY WRÓCIĆ DO MENU LUB INNY KLAWISZ W CELU POWTÓRZENIA WALKI");
-                new Menu();
-                Console.ReadLine();
-
+                userInput = Console.ReadLine();
+                switch (userInput)
+                {
+                    case "1":
+                        new Menu(OurCharacter);
+                        break;
+                    default:
+                        new BossFight(OurCharacter);
+                        break;
+                }
             }
         }
            
