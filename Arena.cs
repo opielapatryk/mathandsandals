@@ -15,12 +15,12 @@
         }
         #endregion
         #region METHODS
-        public void ChooseDuel(Character OurCharacter)
+        public void ChooseDuel(Character OurCharacter, Boss Andrzej)
         {
             if (TypeOfDuel == "1")
             {
                 Console.WriteLine("Ejże!.. wybrałeś pojedynek z bossem!");
-                new BossFight(OurCharacter);
+                new BossFight(OurCharacter, Andrzej);
             }
             else
             {

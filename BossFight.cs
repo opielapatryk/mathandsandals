@@ -10,17 +10,16 @@ namespace swordsandsandals
     public class BossFight
     {
         #region FIELDS
+        
         public int answer;
         private string userInput;
-        List<Boss> BossList = new List<Boss>()
-        {
-            new Boss("Mechanik Andrzej", 100, 1),
-        };
         #endregion
         #region CONSTRUCTOR 
-        public BossFight(Character OurCharacter)
+        public BossFight(Character OurCharacter, Boss Andrzej)
         {
-            int bossHP = BossList[0].Health;
+            int nextNum = Andrzej.NextNum;
+            int nextNumSec = Andrzej.NextNumSec;
+            int bossHP = Andrzej.Health;
             int myHP = OurCharacter.Health;
             Console.WriteLine("Rozwiązuj działania matematyczne aby przeprowadzić atak");
             Console.ReadLine();
@@ -30,14 +29,15 @@ namespace swordsandsandals
             while ((myHP>0) && (bossHP>0))
             {
                 Console.WriteLine("Statystyki przeciwnika:");
-                Console.WriteLine("Boss: " + BossList[0].Name);
+                Console.WriteLine("Boss: " + Andrzej.Name);
                 Console.WriteLine("HP: " + bossHP);
                 Console.WriteLine("-----------------------------");
                 Console.WriteLine("Twoje HP: {0}", myHP);
                 Console.WriteLine("-----------------------------");
 
-                int firstRandNum = random.Next(10);
-                int secRandNum = random.Next(10);
+
+                int firstRandNum = random.Next(1, nextNum);
+                int secRandNum = random.Next(1, nextNumSec);
                 Console.WriteLine("{0} * {1} = ", firstRandNum, secRandNum);
                 int correct = firstRandNum * secRandNum;
 
@@ -74,21 +74,15 @@ namespace swordsandsandals
             {
                 OurCharacter.Level += 1;
                 OurCharacter.StatPoints += 1;
+
+                Andrzej.NextNum += 1;
+                Andrzej.NextNumSec += 1;
                 Console.WriteLine("GRATULACJE! WYGRAŁEŚ POJEDYNEK! Dzięki czemu zyskujesz kolejny lvl: {0}, oraz punkt statystyk.", OurCharacter.Level);
-                //SAVE
-                
-                //string filePath = "/save.xml";
-                //FileStream fileStream = new FileStream(filePath, FileMode.Create);
-                //XmlSerializer serializer = new XmlSerializer(typeof(Character));
-                //serializer.Serialize(fileStream, OurCharacter);
-                //fileStream.Close();
 
 
 
 
-
-
-                new Menu(OurCharacter);
+                new Menu(OurCharacter, Andrzej);
             }
             else
             {
@@ -99,10 +93,10 @@ namespace swordsandsandals
                 switch (userInput)
                 {
                     case "1":
-                        new Menu(OurCharacter);
+                        new Menu(OurCharacter, Andrzej);
                         break;
                     default:
-                        new BossFight(OurCharacter);
+                        new BossFight(OurCharacter, Andrzej);
                         break;
                 }
             }

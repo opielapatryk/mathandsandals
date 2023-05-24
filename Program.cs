@@ -9,6 +9,7 @@ namespace swordsandsandals
             //jeezli nie ma sejwa to odpal to..
             new Prolog();
             //jezeli jest sejw to odpal to...
+            //loadSave();
             //new Menu();
         }
     }

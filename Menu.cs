@@ -5,7 +5,7 @@ namespace swordsandsandals
     {
         private string userInput;
 
-        public Menu(Character OurCharacter)
+        public Menu(Character OurCharacter,Boss Andrzej)
         {
             
             Console.WriteLine("Wcisnij klawisz 1 aby przejsc do panelu statystyk, lub inny klawisz aby stoczyc pojedynek.");
@@ -13,10 +13,10 @@ namespace swordsandsandals
             switch (userInput)
             {
                 case "1":
-                    new StatsManager(OurCharacter);
+                    new StatsManager(OurCharacter, Andrzej);
                     break;
                 default:
-                    new BossFight(OurCharacter);
+                    new BossFight(OurCharacter, Andrzej);
                     break;
             }
             

@@ -8,9 +8,9 @@
         private string typeOfDuel;
         #endregion
         #region CONSTRUCTOR
-        public StatsManager(Character OurCharacter)
+        public StatsManager(Character OurCharacter, Boss Andrzej)
 		{
-            Console.Clear();//wyjebac?
+            Console.Clear();
             if (OurCharacter.StatPoints > 0)
             {
                 do
@@ -54,8 +54,12 @@
                 Console.Clear();
 
             } while ((typeOfDuel != "1") && (typeOfDuel != "2"));
+            //save
+            //kod
+            //save
             Arena MainArena = new Arena(typeOfDuel);
-            MainArena.ChooseDuel(OurCharacter);
+            MainArena.ChooseDuel(OurCharacter, Andrzej);
+
         }
 #endregion
     }
