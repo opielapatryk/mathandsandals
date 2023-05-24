@@ -1,8 +1,8 @@
 ﻿using System;
 namespace swordsandsandals
 {
-	public class Boss
-	{
+    public class Cipher
+    {
         #region FIELDS
         public string Name;
         public int Health;
@@ -10,8 +10,8 @@ namespace swordsandsandals
         public int NextNumSec;
         #endregion
         #region CONSTRUCTOR
-        public Boss(string name, int health, int nextNum, int nextNumSec)
-		{
+        public Cipher(string name, int health, int nextNum, int nextNumSec)
+        {
             Name = name;
             Health = health;
             NextNum = nextNum;

@@ -5,18 +5,34 @@ namespace swordsandsandals
     {
         private string userInput;
 
-        public Menu(Character OurCharacter,Boss Andrzej)
+        public Menu(Character OurCharacter,Arena MainArena, Boss Andrzej, Cipher Grzesiek)
         {
             
-            Console.WriteLine("Wcisnij klawisz 1 aby przejsc do panelu statystyk, lub inny klawisz aby stoczyc pojedynek.");
+            Console.WriteLine("Wcisnij klawisz 1 aby przejsc do walki z bossem, 2 aby przejsc do walki ze zwyklym rzezimieszkiem lub inny klawisz aby przejsc do panelu statystyk. ");
+            Console.WriteLine("WPISZ 0 ABY WYJSC Z GRY");
             userInput = Console.ReadLine();
+
             switch (userInput)
             {
                 case "1":
-                    new StatsManager(OurCharacter, Andrzej);
+
+                    new BossFight(OurCharacter, Andrzej, MainArena, Grzesiek);
+
                     break;
+                case "2":
+
+                    new CipherFight(OurCharacter, Grzesiek, MainArena, Andrzej);
+
+                    break;
+                case "0":
+
+                    Environment.Exit(0);
+
+                    break;
+                    
+
                 default:
-                    new BossFight(OurCharacter, Andrzej);
+                    new StatsManager(OurCharacter, Andrzej, Grzesiek);
                     break;
             }
             

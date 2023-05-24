@@ -15,7 +15,7 @@ namespace swordsandsandals
         private string userInput;
         #endregion
         #region CONSTRUCTOR 
-        public BossFight(Character OurCharacter, Boss Andrzej)
+        public BossFight(Character OurCharacter, Boss Andrzej, Arena MainArena, Cipher Grzesiek)
         {
             int nextNum = Andrzej.NextNum;
             int nextNumSec = Andrzej.NextNumSec;
@@ -82,7 +82,7 @@ namespace swordsandsandals
 
 
 
-                new Menu(OurCharacter, Andrzej);
+                new Menu(OurCharacter, MainArena, Andrzej, Grzesiek);
             }
             else
             {
@@ -93,10 +93,10 @@ namespace swordsandsandals
                 switch (userInput)
                 {
                     case "1":
-                        new Menu(OurCharacter, Andrzej);
+                        new Menu(OurCharacter, MainArena, Andrzej, Grzesiek);
                         break;
                     default:
-                        new BossFight(OurCharacter, Andrzej);
+                        new BossFight(OurCharacter, Andrzej, MainArena, Grzesiek);
                         break;
                 }
             }
