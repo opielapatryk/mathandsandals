@@ -3,27 +3,27 @@
 	public class StatsManager
 	{
         #region CONSTRUCTOR
-        public StatsManager(Character OurCharacter, Enemy NightmasterVampire, Enemy PlaguedDog)
+        public StatsManager(Character MyCharacter, Enemy Boss, Enemy Cipher)
 		{
             Console.Clear();
             ConsoleKeyInfo chinput;
 
-            if (OurCharacter.StatPoints > 0)
+            if (MyCharacter.StatPoints > 0)
             {
                 do
                 {
-                    Console.WriteLine("You have {0} points left.\n1. Health: {1} | 2. Agility: {2} | 0. Exit", OurCharacter.StatPoints, OurCharacter.Health, OurCharacter.Agility);
+                    Console.WriteLine("You have {0} points left.\n1. Health: {1} | 2. Agility: {2} | 0. Exit", MyCharacter.StatPoints, MyCharacter.Health, MyCharacter.Agility);
                     chinput = Console.ReadKey();
 
                     switch (chinput.Key)
                     {
                         case ConsoleKey.D1:
-                            OurCharacter.StatPoints -= 1;
-                            OurCharacter.Health += 1;
+                            MyCharacter.StatPoints -= 1;
+                            MyCharacter.Health += 1;
                             break;
                         case ConsoleKey.D2:
-                            OurCharacter.StatPoints -= 1;
-                            OurCharacter.Agility += 1;
+                            MyCharacter.StatPoints -= 1;
+                            MyCharacter.Agility += 1;
                             break;
                         default:
                             Console.WriteLine("Fight!");
@@ -31,12 +31,12 @@
                     }
                     Console.Clear();
                 }
-                while ((OurCharacter.StatPoints > 0) && ((chinput.Key == ConsoleKey.D1) || (chinput.Key == ConsoleKey.D2)));
+                while ((MyCharacter.StatPoints > 0) && ((chinput.Key == ConsoleKey.D1) || (chinput.Key == ConsoleKey.D2)));
                 Console.WriteLine("Fight!");
             }
             else
             {
-                Console.WriteLine("You don't have enough points.\n1. Health: {0} | 2. Agility: {1}.\nFight!", OurCharacter.Health, OurCharacter.Agility);
+                Console.WriteLine("You don't have enough points.\n1. Health: {0} | 2. Agility: {1}.\nFight!", MyCharacter.Health, MyCharacter.Agility);
             }
             
             do
@@ -47,7 +47,7 @@
             } while ((chinput.Key == ConsoleKey.D1) && (chinput.Key == ConsoleKey.D2));
             //place for save
             Arena MainArena = new Arena(chinput);
-            MainArena.ChooseDuel(OurCharacter, NightmasterVampire, PlaguedDog, MainArena);
+            MainArena.ChooseDuel(MyCharacter, Boss, Cipher, MainArena);
         }
 #endregion
     }

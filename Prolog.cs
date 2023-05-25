@@ -4,15 +4,19 @@
 	{
 		public Prolog()
 		{
-            string name;
-            do
-            {
-                Console.WriteLine("Please enter your name!");
-                name = Console.ReadLine();
-                Console.Clear();
-            } while (string.IsNullOrEmpty(name));
+            Console.WriteLine("Hello! Please enter your name!");
+            string name = Console.ReadLine();
+            Console.Clear();
 
-            Console.Clear(); 
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                while (string.IsNullOrWhiteSpace(name))
+                {
+                    Console.WriteLine("Please try again! enter your name!");
+                    name = Console.ReadLine();
+                    Console.Clear();
+                }
+            }
 
             Character OurCharacter = new Character(name, 100, 1, 3, 1);
             Enemy PlaguedDog = new Enemy("Plagued Dog", 50, 10, 10);
