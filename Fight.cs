@@ -36,7 +36,6 @@
                 {
                     Console.WriteLine(ex.Message);
                 }
-
                 Console.Clear();
 
                 if (correct == answer)
@@ -53,7 +52,6 @@
                     Console.ReadLine();
                     Console.Clear();
                 }
-
             }
             if (myHP > 0)
             {
@@ -81,7 +79,6 @@
                 else
                 {
                     new Fight(OurCharacter, NightmasterVampire, MainArena, PlaugedDog, 0, "Congratulations! You won!", false);
-
                 }
             }
         }

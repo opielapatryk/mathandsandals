@@ -48,9 +48,7 @@
             //place for save
             Arena MainArena = new Arena(chinput);
             MainArena.ChooseDuel(OurCharacter, NightmasterVampire, PlaguedDog, MainArena);
-
         }
 #endregion
     }
 }
-
