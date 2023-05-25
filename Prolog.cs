@@ -4,8 +4,14 @@
 	{
 		public Prolog()
 		{
-            Console.WriteLine("Hello! Please insert your name!");
-            string name = Console.ReadLine(); 
+            string name;
+            do
+            {
+                Console.WriteLine("Please enter your name!");
+                name = Console.ReadLine();
+                Console.Clear();
+            } while (string.IsNullOrEmpty(name));
+
             Console.Clear(); 
 
             Character OurCharacter = new Character(name, 100, 1, 3, 1);
