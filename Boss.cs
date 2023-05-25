@@ -1,5 +1,4 @@
-﻿using System;
-namespace swordsandsandals
+﻿namespace swordsandsandals
 {
 	public class Boss
 	{
@@ -16,25 +15,8 @@ namespace swordsandsandals
             Health = health;
             NextNum = nextNum;
             NextNumSec = nextNumSec;
-
         }
         #endregion
-        #region METHODS
-        public void EnemyAttack()
-        {
-            //wypisz generate new math task
-            //odliczanie(time)
-            //odpowiedz
-            //poprawna odp = dash
-            //blad = odejmij hp
-        }
-
-        public void GiveBounty()
-        {
-
-        }
-        #endregion
-
     }
 }
 

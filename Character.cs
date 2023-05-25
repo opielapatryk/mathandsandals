@@ -16,31 +16,11 @@
         {
             Name = name;
             Health = health;
-            Agility = agility;//chance to dash
+            Agility = agility; //chance to dash
             StatPoints = statPoints;
             Level = lvl;
         }
         #endregion
-        #region METHODS
-        public void Attack()
-       {
-            //wypisz generate new math task
-            //odliczanie(time)
-            //odpowiedz
-            //poprawna odp = odejmij hp przeciwnika
-            //blad = przeciwnik robi dash
-            //jezeli hp przeciwnika < 0 to LvlUp()
-            //jezeli twoje hp < 0 to sprobuj ponownie lub odpocznij
-
-        }
-
-        public void LvlUp()
-        {
-            //character.level += 1 
-            //character.statPoints += 1 
-        }
-        #endregion
-
     }
 }
 

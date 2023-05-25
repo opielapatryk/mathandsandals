@@ -6,11 +6,8 @@ namespace swordsandsandals
     {
         static void Main()
         {
-            //jeezli nie ma sejwa to odpal to..
+            //if save ? loadSave() newMenu() : new Prolog();
             new Prolog();
-            //jezeli jest sejw to odpal to...
-            //loadSave();
-            //new Menu();
         }
     }
 }

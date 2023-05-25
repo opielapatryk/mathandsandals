@@ -1,40 +1,27 @@
-﻿using System;
-using System.IO;
-using System.Text.Json;
-using System.Xml.Serialization;
-
-
-namespace swordsandsandals
+﻿namespace swordsandsandals
 {
-
     public class CipherFight
     {
         #region FIELDS
-
         public int answer;
         ConsoleKeyInfo chinput;
         #endregion
         #region CONSTRUCTOR 
-        public CipherFight(Character OurCharacter, Cipher Grzesiek, Arena MainArena, Boss Andrzej)
+        public CipherFight(Character OurCharacter, Boss NightmasterVampire, Arena MainArena, Cipher PlaugedDog)
         {
-            int nextNum = Grzesiek.NextNum;
-            int nextNumSec = Grzesiek.NextNumSec;
-            int bossHP = Grzesiek.Health;
+            int nextNum = PlaugedDog.NextNum;
+            int nextNumSec = PlaugedDog.NextNumSec;
+            int bossHP = PlaugedDog.Health;
             int myHP = OurCharacter.Health;
-            Console.WriteLine("Rozwiązuj działania matematyczne aby przeprowadzić atak");
+            Console.Clear();
+            Console.WriteLine("Solve math operations to deal damage to enemy.\nPress any key to continue.");
             Console.ReadLine();
             Console.Clear();
 
             Random random = new Random();
             while ((myHP > 0) && (bossHP > 0))
             {
-                Console.WriteLine("Statystyki przeciwnika:");
-                Console.WriteLine("Rzemieszniczek: " + Grzesiek.Name);
-                Console.WriteLine("HP: " + bossHP);
-                Console.WriteLine("-----------------------------");
-                Console.WriteLine("Twoje HP: {0}", myHP);
-                Console.WriteLine("-----------------------------");
-
+                Console.WriteLine("Cipher: {0}\nHP: {1}\n-----------------------------\nYour HP: {2}\n-----------------------------", PlaugedDog.Name, bossHP, myHP);
 
                 int firstRandNum = random.Next(1, nextNum);
                 int secRandNum = random.Next(1, nextNumSec);
@@ -54,57 +41,45 @@ namespace swordsandsandals
 
                 if (correct == answer)
                 {
-                    Console.WriteLine("Dobrze!");
+                    Console.WriteLine("Good job!");
                     bossHP = bossHP - correct;
                     Console.ReadLine();
                     Console.Clear();
                 }
                 else
                 {
-                    Console.WriteLine("Źle!");
-                    Console.WriteLine("Poprawna odpowiedź: {0}", correct);
+                    Console.WriteLine("Wrong!\nCorrect answer: {0}", correct);
                     myHP = myHP - correct;
                     Console.ReadLine();
                     Console.Clear();
-
                 }
 
             }
             if (myHP > 0)
             {
-                OurCharacter.Level += 1;
-                OurCharacter.StatPoints += 1;
-
-                Grzesiek.NextNum += 1;
-                Grzesiek.NextNumSec += 1;
-                Console.WriteLine("GRATULACJE! WYGRAŁEŚ POJEDYNEK! Dzięki czemu zyskujesz kolejny lvl: {0}, oraz punkt statystyk.", OurCharacter.Level);
-
-
-
-
-                new Menu(OurCharacter, MainArena, Andrzej, Grzesiek);
+                PlaugedDog.NextNum += 1;
+                PlaugedDog.NextNumSec += 1;
+                Console.WriteLine("Congratulations! You won!");
+                new Menu(OurCharacter, MainArena, NightmasterVampire, PlaugedDog);
             }
             else
             {
-                Console.WriteLine("NIESTETY! PONIOSŁEŚ PORAŻKĘ..");
-                Console.WriteLine("Wciśnij 1. ABY WRÓCIĆ DO MENU LUB INNY KLAWISZ W CELU POWTÓRZENIA WALKI");
+                Console.WriteLine("What a shame! You lose..\nPress 1 to go back to menu or any key to try again.");
                 chinput = Console.ReadKey();
-
                 Console.Clear();
+
                 switch (chinput.Key)
                 {
                     case ConsoleKey.D1:
-                        new Menu(OurCharacter, MainArena, Andrzej, Grzesiek);
+                        new Menu(OurCharacter, MainArena, NightmasterVampire, PlaugedDog);
                         break;
                     default:
-                        new CipherFight(OurCharacter, Grzesiek, MainArena, Andrzej);
+                        new CipherFight(OurCharacter, NightmasterVampire, MainArena, PlaugedDog);
                         break;
                 }
             }
         }
 
-        #endregion
-        #region METHODS
         #endregion
     }
 }

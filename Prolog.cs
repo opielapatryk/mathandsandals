@@ -1,26 +1,21 @@
-﻿using System;
-namespace swordsandsandals
+﻿namespace swordsandsandals
 {
 
 	public class Prolog
 	{
 		public Prolog()
 		{
-            Console.WriteLine("Witaj przywoływaczu! Podaj swoje imię!");
-            string name = Console.ReadLine();
-            Console.Clear();
+            Console.WriteLine("Hello! Please insert your name!");
+            string name = Console.ReadLine(); 
+            Console.Clear(); 
 
             Character OurCharacter = new Character(name, 100, 1, 3, 1);
-            Boss Andrzej = new Boss("Mechanik Andrzej", 100, 10, 10);
-            Cipher Grzesiek = new Cipher("Młodszy zmieniacz opon Grzesiek", 50, 10, 10);
+            Boss NightmasterVampire = new Boss("Nightmaster Vampire", 100, 10, 10);
+            Cipher PlaguedDog = new Cipher("Plagued Dog", 50, 10, 10);
 
-            Console.WriteLine("Witaj {0}! Na początek masz {1} puntków życia, lecz możesz zdobyć go więcej przez ulepszanie statystyk. Otrzymałeś 10 punktów, śmiało rozdaj je w wybrane przez siebie statystyki..", OurCharacter.Name, OurCharacter.Health);
-            
-            new StatsManager(OurCharacter, Andrzej, Grzesiek);
-            
-
-           
-            
+            Console.WriteLine("Hello {0}! \nYou have {1} health points, you can upgrade your stats to get more..\nYou recived 3 free points,\ngo ahead and spend them on your statistics.\nPress any key to continue..", OurCharacter.Name, OurCharacter.Health);
+            Console.ReadLine();
+            new StatsManager(OurCharacter, NightmasterVampire, PlaguedDog);
         }
 	}
 }

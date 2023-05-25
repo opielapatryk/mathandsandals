@@ -1,48 +1,29 @@
-﻿
-namespace swordsandsandals
+﻿namespace swordsandsandals
 {
     public class Menu
     {
         ConsoleKeyInfo chinput;
 
-        public Menu(Character OurCharacter,Arena MainArena, Boss Andrzej, Cipher Grzesiek)
-        {
-            
-            Console.WriteLine("Wcisnij klawisz 1 aby przejsc do walki z bossem, 2 aby przejsc do walki ze zwyklym rzezimieszkiem lub inny klawisz aby przejsc do panelu statystyk. ");
-            Console.WriteLine("WPISZ 0 ABY WYJSC Z GRY");
+        public Menu(Character OurCharacter,Arena MainArena, Boss NightmasterVampire, Cipher PalugedDog)
+        {   
+            Console.WriteLine("Press 1 to fight with the boss\nPress 2 to fight with the cipher\nPress 0 to leave the game.\nPress any key to upgrade your statistics.");
             chinput = Console.ReadKey();
-
 
             switch (chinput.Key)
             {
                 case ConsoleKey.D1:
-
-                    new BossFight(OurCharacter, Andrzej, MainArena, Grzesiek);
-
+                    new BossFight(OurCharacter, NightmasterVampire, MainArena, PalugedDog);
                     break;
                 case ConsoleKey.D2:
-
-                    new CipherFight(OurCharacter, Grzesiek, MainArena, Andrzej);
-
+                    new CipherFight(OurCharacter, NightmasterVampire, MainArena, PalugedDog);
                     break;
                 case ConsoleKey.D0:
                     Environment.Exit(0);
-
                     break;
-                    
-
                 default:
-                    new StatsManager(OurCharacter, Andrzej, Grzesiek);
+                    new StatsManager(OurCharacter, NightmasterVampire, PalugedDog);
                     break;
             }
-            
         }
     }
 }
-
-//Console.WriteLine("WCIŚNIJ 1. ABY PRZEJŚĆ DO KOLEJNEJ WALKI LUB INNY KLAWISZ W CELU ULEPSZENIA BĄDŹ SPRAWDZENIA STATYSTYK!");
-//string choice = Console.ReadLine();
-//if (choice == "1")
-//{
-
-//}
