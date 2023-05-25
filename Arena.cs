@@ -4,20 +4,20 @@
 	public class Arena
 	{
         #region FIELDS
-        public string TypeOfDuel;
-        
+        ConsoleKeyInfo Chinput;
+
 
         #endregion
         #region CONTRUCTOR
-        public Arena(string typeOfDuel)
+        public Arena(ConsoleKeyInfo chinput)
         {
-            TypeOfDuel = typeOfDuel;
+            Chinput = chinput;
         }
         #endregion
         #region METHODS
         public void ChooseDuel(Character OurCharacter, Boss Andrzej, Cipher Grzesiek, Arena MainArena)
         {
-            if (TypeOfDuel == "1")
+            if (Chinput.Key == ConsoleKey.D1)
             {
                 Console.WriteLine("Ejże!.. wybrałeś pojedynek z bossem!");
                 new BossFight(OurCharacter, Andrzej, MainArena, Grzesiek);

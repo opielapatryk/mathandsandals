@@ -12,7 +12,7 @@ namespace swordsandsandals
         #region FIELDS
 
         public int answer;
-        private string userInput;
+        ConsoleKeyInfo chinput;
         #endregion
         #region CONSTRUCTOR 
         public CipherFight(Character OurCharacter, Cipher Grzesiek, Arena MainArena, Boss Andrzej)
@@ -88,11 +88,12 @@ namespace swordsandsandals
             {
                 Console.WriteLine("NIESTETY! PONIOSŁEŚ PORAŻKĘ..");
                 Console.WriteLine("Wciśnij 1. ABY WRÓCIĆ DO MENU LUB INNY KLAWISZ W CELU POWTÓRZENIA WALKI");
-                userInput = Console.ReadLine();
+                chinput = Console.ReadKey();
+
                 Console.Clear();
-                switch (userInput)
+                switch (chinput.Key)
                 {
-                    case "1":
+                    case ConsoleKey.D1:
                         new Menu(OurCharacter, MainArena, Andrzej, Grzesiek);
                         break;
                     default:

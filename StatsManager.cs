@@ -11,20 +11,23 @@
         public StatsManager(Character OurCharacter, Boss Andrzej, Cipher Grzesiek)
 		{
             Console.Clear();
+            ConsoleKeyInfo chinput;
+
             if (OurCharacter.StatPoints > 0)
             {
                 do
                 {
                     Console.WriteLine("Pozostało ci do wykorzystania {0} puntków statystyk!", OurCharacter.StatPoints);
                     Console.WriteLine("1. health: {0} | 2. agility: {1} | 0. Wyjdź", OurCharacter.Health, OurCharacter.Agility);
-                    userInput = Console.ReadLine();
-                    switch (userInput)
+                    chinput = Console.ReadKey();
+
+                    switch (chinput.Key)
                     {
-                        case "1":
+                        case ConsoleKey.D1:
                             OurCharacter.StatPoints -= 1;
                             OurCharacter.Health += 1;
                             break;
-                        case "2":
+                        case ConsoleKey.D2:
                             OurCharacter.StatPoints -= 1;
                             OurCharacter.Agility += 1;
                             break;
@@ -34,7 +37,7 @@
                     }
                     Console.Clear();
                 }
-                while ((OurCharacter.StatPoints > 0) && ((userInput == "1") || (userInput == "2")));
+                while ((OurCharacter.StatPoints > 0) && ((chinput.Key == ConsoleKey.D1) || (chinput.Key == ConsoleKey.D2)));
                 Console.WriteLine("Przejdź do areny!");
 
             }
@@ -50,14 +53,14 @@
             {
                 Console.WriteLine("Wybierz typ przeciwnika!");
                 Console.WriteLine("1. Boss | 2. Rzezimieszek");
-                typeOfDuel = Console.ReadLine();
+                chinput = Console.ReadKey();
                 Console.Clear();
 
-            } while ((typeOfDuel != "1") && (typeOfDuel != "2"));
+            } while ((chinput.Key == ConsoleKey.D1) && (chinput.Key == ConsoleKey.D2));
             //save
             //kod
             //save
-            Arena MainArena = new Arena(typeOfDuel);
+            Arena MainArena = new Arena(chinput);
             MainArena.ChooseDuel(OurCharacter, Andrzej, Grzesiek, MainArena);
 
         }
