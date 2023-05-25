@@ -9,8 +9,6 @@
             Console.Clear(); 
 
             Character OurCharacter = new Character(name, 100, 1, 3, 1);
-            //Boss NightmasterVampire = new Boss("Nightmaster Vampire", 100, 10, 10);
-            //Cipher PlaguedDog = new Cipher("Plagued Dog", 50, 10, 10);
             Enemy PlaguedDog = new Enemy("Plagued Dog", 50, 10, 10);
             Enemy NightmasterVampire = new Enemy("Nightmaster Vampire", 100, 10, 10);
 

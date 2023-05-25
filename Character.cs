@@ -1,6 +1,5 @@
 ﻿namespace swordsandsandals
 {
-    [Serializable]
     public class Character
     {
         #region FIELDS
