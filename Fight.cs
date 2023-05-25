@@ -4,6 +4,7 @@
     {
         #region FIELDS
         public int answer;
+        public string actualEnemyName;
         ConsoleKeyInfo chinput;
         #endregion
         #region CONSTRUCTOR 
@@ -11,48 +12,15 @@
         {
             int nextNum = ActualEnemy.NextNum;
             int nextNumSec = ActualEnemy.NextNumSec;
+            actualEnemyName = ActualEnemy.Name;
             int bossHP = ActualEnemy.Health;
             int myHP = MyCharacter.Health;
             Console.Clear();
             Console.WriteLine("Solve math operations to deal damage to enemy.\nPress any key to continue.");
             Console.ReadLine();
             Console.Clear();
-
-            Random random = new Random();
-            while ((myHP > 0) && (bossHP > 0))
-            {
-                Console.WriteLine("Boss: {0}\nHP: {1}\n-----------------------------\nYour HP: {2}\n-----------------------------", ActualEnemy.Name, bossHP, myHP);
-
-                int firstRandNum = random.Next(1, nextNum);
-                int secRandNum = random.Next(1, nextNumSec);
-                Console.WriteLine("{0} * {1} = ", firstRandNum, secRandNum);
-                int correct = firstRandNum * secRandNum;
-
-                try
-                {
-                    answer = Convert.ToInt32(Console.ReadLine());
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-                Console.Clear();
-
-                if (correct == answer)
-                {
-                    Console.WriteLine("Good job!");
-                    bossHP = bossHP - correct;
-                    Console.ReadLine();
-                    Console.Clear();
-                }
-                else
-                {
-                    Console.WriteLine("Wrong!\nCorrect answer: {0}", correct);
-                    myHP = myHP - correct;
-                    Console.ReadLine();
-                    Console.Clear();
-                }
-            }
+            new Multiply(myHP,bossHP,nextNum,nextNumSec,answer, actualEnemyName);
+           
             if (myHP > 0)
             {
                 MyCharacter.Level += bounty;
