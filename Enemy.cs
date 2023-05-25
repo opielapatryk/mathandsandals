@@ -1,6 +1,6 @@
 ﻿namespace swordsandsandals
 {
-    public class Cipher
+    public class Enemy
     {
         #region FIELDS
         public string Name;
@@ -9,7 +9,7 @@
         public int NextNumSec;
         #endregion
         #region CONSTRUCTOR
-        public Cipher(string name, int health, int nextNum, int nextNumSec)
+        public Enemy(string name, int health, int nextNum, int nextNumSec)
         {
             Name = name;
             Health = health;
@@ -17,7 +17,6 @@
             NextNumSec = nextNumSec;
         }
         #endregion
-
     }
 }
 

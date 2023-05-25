@@ -3,7 +3,7 @@
 	public class StatsManager
 	{
         #region CONSTRUCTOR
-        public StatsManager(Character OurCharacter, Boss NightmasterVampire, Cipher PlaguedDog)
+        public StatsManager(Character OurCharacter, Enemy NightmasterVampire, Enemy PlaguedDog)
 		{
             Console.Clear();
             ConsoleKeyInfo chinput;

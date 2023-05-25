@@ -1,13 +1,13 @@
 ﻿namespace swordsandsandals
 {
-    public class BossFight
+    public class Fight
     {
         #region FIELDS
         public int answer;
         ConsoleKeyInfo chinput;
         #endregion
         #region CONSTRUCTOR 
-        public BossFight(Character OurCharacter, Boss NightmasterVampire, Arena MainArena, Cipher PlaugedDog)
+        public Fight(Character OurCharacter, Enemy NightmasterVampire, Arena MainArena, Enemy PlaugedDog, int bounty, string winMess, bool isBoss)
         {
             int nextNum = NightmasterVampire.NextNum;
             int nextNumSec = NightmasterVampire.NextNumSec;
@@ -57,11 +57,11 @@
             }
             if (myHP > 0)
             {
-                OurCharacter.Level += 1;
-                OurCharacter.StatPoints += 1;
-                NightmasterVampire.NextNum += 1;
+                OurCharacter.Level += bounty; 
+                OurCharacter.StatPoints += bounty; 
+                NightmasterVampire.NextNum += 1;  
                 NightmasterVampire.NextNumSec += 1;
-                Console.WriteLine("Congratulations! You won!\nYou have reached new lvl: {0} and gain one stat point.", OurCharacter.Level);
+                Console.WriteLine(winMess, OurCharacter.Level);
                 new Menu(OurCharacter, MainArena, NightmasterVampire, PlaugedDog);
             }
             else
@@ -70,14 +70,18 @@
                 chinput = Console.ReadKey();
                 Console.Clear();
 
-                switch (chinput.Key)
+                if(chinput.Key == ConsoleKey.D1)
                 {
-                    case ConsoleKey.D1:
-                        new Menu(OurCharacter, MainArena, NightmasterVampire, PlaugedDog);
-                        break;
-                    default:
-                        new BossFight(OurCharacter, NightmasterVampire, MainArena, PlaugedDog);
-                        break;
+                    new Menu(OurCharacter, MainArena, NightmasterVampire, PlaugedDog);
+
+                }else if (isBoss)
+                {
+                    new Fight(OurCharacter, NightmasterVampire, MainArena, PlaugedDog, 1, "Congratulations! You won!\nYou have reached new lvl: {0} and gain one stat point.", true);
+                }
+                else
+                {
+                    new Fight(OurCharacter, NightmasterVampire, MainArena, PlaugedDog, 0, "Congratulations! You won!", false);
+
                 }
             }
         }

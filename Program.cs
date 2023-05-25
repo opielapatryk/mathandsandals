@@ -1,5 +1,4 @@
-﻿
-namespace swordsandsandals
+﻿namespace swordsandsandals
 {
 
     public class Game

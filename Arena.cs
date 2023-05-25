@@ -13,17 +13,19 @@
         }
         #endregion
         #region METHODS
-        public void ChooseDuel(Character OurCharacter, Boss NightmasterVampire, Cipher PlaugedDog, Arena MainArena)
+        public void ChooseDuel(Character OurCharacter, Enemy NightmasterVampire, Enemy PlaugedDog, Arena MainArena)
         {
             if (Chinput.Key == ConsoleKey.D1)
             {
                 Console.WriteLine("Brave man! You have choosen duel with Nightmaster Vampire!");
-                new BossFight(OurCharacter, NightmasterVampire, MainArena, PlaugedDog);
+                //new BossFight(OurCharacter, NightmasterVampire, MainArena, PlaugedDog);
+                new Fight(OurCharacter, NightmasterVampire, MainArena, PlaugedDog, 1, "Congratulations! You won!\nYou have reached new lvl: {0} and gain one stat point.",true);
             }
             else
             {
                 Console.WriteLine("Whoa.. Look who is there.. Paluged Dog!");
-                new CipherFight(OurCharacter, NightmasterVampire, MainArena, PlaugedDog);
+                //new CipherFight(OurCharacter, NightmasterVampire, MainArena, PlaugedDog);
+                new Fight(OurCharacter, PlaugedDog, MainArena, NightmasterVampire, 0, "Congratulations! You won!",false);
             }
         }
         #endregion
