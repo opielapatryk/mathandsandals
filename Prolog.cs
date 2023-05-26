@@ -23,7 +23,7 @@
             Enemy NightmasterVampire = new Enemy("Nightmaster Vampire", 100, 10, 10);
 
             Console.WriteLine("Hello {0}! \nYou have {1} health points, you can upgrade your stats to get more..\nYou recived 3 free points,\ngo ahead and spend them on your statistics.\nPress any key to continue..", OurCharacter.Name, OurCharacter.Health);
-            Console.ReadLine();
+            Console.ReadKey();
             new StatsManager(OurCharacter, NightmasterVampire, PlaguedDog);
         }
 	}
