@@ -4,8 +4,11 @@
     {
         static void Main()
         {
-            //if save ? loadSave() newMenu() : new Prolog();
-            new Prolog();
+            // Check if there is a saved game
+            // If yes, loadSave()
+            // If no, start a new game with Prolog()
+
+            new Prolog(); // Start a new game by creating an instance of the Prolog class
         }
     }
 }
